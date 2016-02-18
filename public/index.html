@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Famous :: Seed Project</title>
+        <title>Famous Transitions</title>
         <link rel="icon" href="favicon.ico?v=1" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="main.css">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
@@ -26,7 +27,108 @@
             }
         </style>
     </head>
-    <body>
+    <body id="transitiongallery">
         <script src="bundle.js"></script>
+        <section id="header">
+            <a class="name" href="http://www.sonikblasts.com">Sonika Malloth</a> <a class="writeup" href="http://sonikblasts.com/tech-blog.html">Check out the article !</a>
+        </section>
+        <section class="container">
+            <h1><span class="flux">Famous</span> <span class="slider">Transitions</span></h1>
+            <h2>2D and 3D animations using <a href="http://www.famous.org" target="_blank">Famo.us</a> js library</h2>
+            <div id="slidercontainer">
+                <div id="slider">    
+                <div class="fluxslider" style="width: 500px; height: 500px;"><div class="surface" style="position: relative"><div class="images" style="position: relative; overflow: hidden; min-height: 100px; width: 500px; height: 500px;" id="demoarea"></div></div></div></div>
+                <div id="transitions">
+                    <h2>2D Transitions</h2>
+                    <ul id="trans2D">
+                        <li><a id="Bars">Bars</a></li>
+                        <li><a id="Zip">Zip</a></li>
+                        <li><a id="Blocks">Blocks</a></li>
+                        <li><a id="Dissolve">Dissolve</a></li>
+                        <li><a id="BlocksRandom">Blocks Random</a></li>
+                        <li><a id="Popup">Popup</a></li>
+                    </ul>
+                    <h2>3D Transitions</h2>
+                    <ul id="trans3D">
+                        <li><a id="Tiles3d">Tiles3D</a></li>
+                        <li><a id="Blinds3d">Blinds3D</a></li>
+                        <li><a id="Flip">Flip</a></li>
+                        <li><a id="Tiles3dRandom">Tiles3D Random</a></li>
+                    </ul>
+                </div>
+            </div>
+            <section id="details">
+                <a href="https://github.com/msonika30/FamousTransitions">Source &amp; Docs @ Github</a>
+            </section>
+            <footer>
+                <p>Famous Transitions © Copyright 2015 Sonika Malloth. All Rights Reserved.</p>
+                <p>Design credits <a href="http://www.twitter.com/joelambert" target="_blank">@joelambert</a>.</p>
+            </footer>
+        </section>
+    <script type="text/javascript">
+        window.Animator = new AnimatorClass();
+
+        document.getElementById('trans2D').addEventListener("click", function(e) {
+            if(e.target && e.target.nodeName == "A"){
+                var options = {width: 500, height: 500};
+                var transition = e.target.id;
+                if(transition === 'Bars'){
+                    options.fadeOutDuration = 500;
+                    options.yPosition = 500;
+                }
+                else if(transition === 'Zip'){
+                    options.fadeOutDuration = 500;
+                    options.yPosition = 500;
+                }
+                else if(transition === 'Blocks'){
+                    options.scaleTo = 0.8;
+                    options.scaleDuration = 200;
+                    options.fadeOutDuration = 200;
+                    options.randomSelection = false;
+                }
+                else if(transition === 'Dissolve'){
+                    options.fadeOutDuration = 500;
+                }
+                else if(transition === 'BlocksRandom'){
+                    transition = 'Blocks';
+                    options.scaleTo = 0.8;
+                    options.scaleDuration = 200;
+                    options.fadeOutDuration = 200;
+                    options.randomSelection = true;
+                }
+                else if(transition === 'Popup'){
+                    options.fadeOutDuration = 500;
+                }
+
+                Animator.animate(transition, options);
+                console.log("clicked on "+transition+" with options: "+options);
+            }
+        });
+
+        document.getElementById('trans3D').addEventListener("click", function(e) {
+            if(e.target && e.target.nodeName == "A"){
+                var options = {width: 500, height: 500};
+                var transition = e.target.id;
+                if(transition === 'Tiles3d'){
+                    options.fadeOutDuration = 500;
+                    options.randomSelection = false;
+                }
+                else if(transition === 'Blinds3d'){
+                    options.fadeOutDuration = 800;
+                }
+                else if(transition === 'Tiles3dRandom'){
+                    transition = 'Tiles3d';
+                    options.fadeOutDuration = 500;
+                    options.randomSelection = true;
+                }
+                else if(transition === 'Flip'){
+                    options.fadeOutDuration = 800;
+                }
+                
+                Animator.animate(transition, options);
+                console.log("clicked on "+transition+" with options: "+options);
+            }
+        });
+    </script>
     </body>
 </html>
