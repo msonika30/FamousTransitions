@@ -401,14 +401,14 @@ Transitions.prototype.create = function(name,options)
 
 
 Transitions.prototype.destroy = function() {
- 	var node = document.getElementById(this.currentCard.id);
- 	while (node.hasChildNodes()) {
-	    node.removeChild(node.lastChild);
-	}
-
     if(this.transition.type === "Crossover-3d")
 		this.nextCard.el.setProperty('background-image','url('+ this.nextCard.source +')');
     
+    var node = document.getElementById(this.currentCard.id);
+ 	while (node.hasChildNodes()) {
+	    node.removeChild(node.lastChild);
+	}
+	
     this.transition = null;
 }
 
