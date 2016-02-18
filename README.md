@@ -28,10 +28,12 @@ Now the dev server with a demo of transitions should be running on localhost:161
 
 ---
 
-###Development
-Run the dev server with ```npm run dev```
+###Known Issues
+1) 3D animations have a flickr at the end of animation
 
-Now the dev server with a demo of transitions should be running on localhost:1618
+2) The child elements added to simulate the animation cause slight decrease in the size of the image
+
+3) 3D animations do not work on iOS mobile browsers (other mobile platforms haven't been tested yet)
 
 ---
 
